@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.comment-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.comment-container {
+  background-color: #f1f1f1;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.comment-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.comment-container img {
+  float: left;
+  max-width: 60px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.comment-container h4 {
+  margin-top: 0;
+}
+
+.comment-container p {
+  margin-bottom: 0;
+}
+
+.comment-container .reply-btn {
+  float: right;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-container .reply-btn:hover {
+  background-color: #45a049;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.comment-form input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-form input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+@media screen and (max-width: 600px) {
+  .comment-container img {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="comment-section">
+  <h3>Comments</h3>
+  <div class="row">
+    <div class="comment-form">
+      <h3>Leave a Comment</h3>
+      <form>
+        <input type="text" name="nom" placeholder="Votre nom complet">
+        <textarea placeholder="Write your comment here..." required></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="comment-container">
+      <img src="https://i.imgur.com/8jFJ9QO.jpg" alt="Avatar">
+      <h4>John Doe</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+      <button class="reply-btn">Reply</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="comment-container">
+      <img src="https://i.imgur.com/8jFJ9QO.jpg" alt="Avatar">
+      <h4>Jane Doe</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+      <button class="reply-btn">Reply</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="comment-container">
+      <img src="https://i.imgur.com/8jFJ9QO.jpg" alt="Avatar">
+      <h4>John Smith</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+      <button class="reply-btn">Reply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var replyBtns = document.getElementsByClassName("reply-btn");
+for (var i = 0; i < replyBtns.length; i++) {
+  replyBtns[i].addEventListener("click", function() {
+    var commentContainer = this.parentElement;
+    var replyForm = document.createElement("form");
+    replyForm.innerHTML = '<textarea placeholder="Write your reply here..." required></textarea><br><input type="submit" value="Submit">';
+    commentContainer.appendChild(replyForm);
+  });
+}
+</script>
+
+</body>
+</html>
